@@ -1,2 +1,0 @@
--c soumith torchvision
--c soumith pytorch

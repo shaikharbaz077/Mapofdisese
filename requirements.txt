@@ -60,6 +60,8 @@ PyWavelets==0.5.2
 PyYAML==3.11
 pyzmq==16.0.2
 qtconsole==4.3.1
+http://download.pytorch.org/whl/cpu/torch-0.3.1-cp27-cp27mu-linux_x86_64.whl
+torchvision
 regex==2017.7.28
 requests==2.14.2
 scandir==1.5
