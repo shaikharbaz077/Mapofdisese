@@ -52,7 +52,6 @@ py==1.4.34
 pycparser==2.18
 Pygments==2.2.0
 pyparsing==2.2.0
-PySide==1.2.2
 pytest==2.7.0
 python-dateutil==2.6.1
 pytz==2017.2
