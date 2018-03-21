@@ -1,1 +1,3 @@
-pytorch-cpu torchvision -c pytorch
+pytorch-cpu
+torchvision
+pytorch
