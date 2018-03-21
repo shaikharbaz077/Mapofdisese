@@ -81,7 +81,7 @@ ujson==1.35
 wcwidth==0.1.7
 widgetsnbextension==3.0.2
 wrapt==1.10.11
-
+flask
 segment==0.2.0
 simplegeneric==0.8.1
 singledispatch==3.4.0.3
