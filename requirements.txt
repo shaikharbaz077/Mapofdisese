@@ -1,5 +1,7 @@
 appnope==0.1.0
 cmake
+pyqt5
+PySide
 backports-abc==0.5
 backports.shutil-get-terminal-size==1.0.0
 backports.ssl-match-hostname==3.5.0.1
