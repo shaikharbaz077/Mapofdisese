@@ -1,4 +1,4 @@
-#from app import app
+from app import app
 from flask import Flask,request,render_template,Response,redirect, url_for, escape
 import requests
 import json
@@ -8,9 +8,6 @@ from .helper import read_base64_image
 from .helper import gen_prediction
 from .helper import gen_probabilities
 import os
-
-
-app = Flask(__name__)
 
 image_64_encode = ""
 filename_src = ""
@@ -77,7 +74,3 @@ def predict():
     print(response)#, filename_res=filename_src
     return render_template('result.html',response=response)
     #return Response(response=response)
-
-
-if __name__ == '__main__':
-	app.run()
