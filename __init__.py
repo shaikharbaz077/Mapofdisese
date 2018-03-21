@@ -1,4 +1,4 @@
-from flask import Flask
+#from flask import Flask
 
 import sys
 import torch
@@ -16,5 +16,5 @@ model.load_state_dict(checkpoint['state_dict'])
 model.eval()
 
 
-app = Flask(__name__)
-from app import views
+#app = Flask(__name__)
+#from app import views

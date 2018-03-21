@@ -12,7 +12,8 @@ from io import StringIO
 import torch
 from torch.autograd import Variable
 
-from app import model, embedder
+import model
+from utils import embeddings
 from utils import preprocessing
 from utils import CLASS_IX_TO_NAME
 
