@@ -33,14 +33,14 @@ def makereq():
 	    fs = request.files['file']
 	    filename = secure_filename(fs.filename)
 
-	    filename_path = os.path.join('/files/imgs/', filename)
+	    filename_path = os.path.join('files/imgs/', filename)
 	    print("--------------------------------file path is : %s" % filename_path )
 	    global filename_src
 	    filename_src = filename_path
 	    fs.save(filename_path)
 
         #enconding image base64
-        image = open('/files/imgs/%s' % filename, 'rb') #open binary file in read mode
+        image = open('files/imgs/%s' % filename, 'rb') #open binary file in read mode
         image_read = image.read()
         global image_64_encode
         image_64_encode = base64.encodestring(image_read)

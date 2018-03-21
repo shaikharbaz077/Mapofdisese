@@ -23,7 +23,7 @@ ipykernel==4.6.1
 ipython==5.3.0
 ipython-genutils==0.2.0
 ipywidgets==6.0.0
-Jinja2==2.9.6
+Jinja2
 joblib==0.8.4
 jsonschema==2.6.0
 Werkzeug
