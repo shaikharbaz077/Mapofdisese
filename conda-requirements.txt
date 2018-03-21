@@ -1,2 +1,2 @@
-soumith torchvision
-soumith pytorch
+-c soumith torchvision
+-c soumith pytorch
