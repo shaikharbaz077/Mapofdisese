@@ -26,6 +26,7 @@ ipywidgets==6.0.0
 Jinja2==2.9.6
 joblib==0.8.4
 jsonschema==2.6.0
+Werkzeug
 lxml==3.8.0
 MarkupSafe==1.0
 mistune==0.7.4
@@ -83,6 +84,7 @@ widgetsnbextension==3.0.2
 wrapt==1.10.11
 flask
 gunicorn
+itsdangerous
 segment==0.2.0
 simplegeneric==0.8.1
 singledispatch==3.4.0.3
