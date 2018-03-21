@@ -1,0 +1,1 @@
+pytorch-cpu torchvision -c pytorch
