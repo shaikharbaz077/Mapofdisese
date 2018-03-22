@@ -29,7 +29,7 @@ def read_base64_image(base64_str):
     bgr_image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
     rgb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)
     return rgb_image
-
+#ee
 
 def gen_probabilities(image):
     """Call PyTorch ResNet + Fine-tuned net.
