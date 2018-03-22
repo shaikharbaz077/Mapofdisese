@@ -4,6 +4,7 @@ import requests
 import json
 import urllib2
 import base64
+import cStringIO
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -57,13 +58,12 @@ def makereq():
         #enconding image base64
         #image = open('/app/files/imgs/%s' % filename, 'rb') #open binary file in read mode
         #image_read = ("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg")
-        with open("img_file.jpg", "wb") as f:
-            image_read2 =  f.write(urllib2.urlopen("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg").read())
+        image_read =   cStringIO.StringIO(urllib2.urlopen("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg").read())
+        img = Image.open(file)
 
-        image_read = open("img_file.jpg",'rb')
         global image_64_encode
         #image_read
-        image_64_encode = base64.encodestring(image_read)
+        image_64_encode = base64.encodestring(img)
         print("image 64 read is")
         print(image_64_encode)
         #making post request
