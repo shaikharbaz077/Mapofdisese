@@ -15,7 +15,7 @@ image_64_encode = ""
 filename_src = ""
 my_list = []
 res=0
-UPLOAD_FOLDER = 'files/imgs/'
+UPLOAD_FOLDER = '/files/imgs/'
 
 @app.route('/')
 @app.route('/index')
@@ -32,15 +32,16 @@ def makereq():
 	if request.method == 'POST':
 	    fs = request.files['file']
 	    filename = secure_filename(fs.filename)
+	    #os.path.join
 
-	    filename_path = os.path.join('files/imgs/', filename)
+	    filename_path = os.path.abspath('/files/imgs/', filename)
 	    print("--------------------------------file path is : %s" % filename_path )
 	    global filename_src
 	    filename_src = filename_path
 	    fs.save(filename_path)
 
         #enconding image base64
-        image = open('files/imgs/%s' % filename, 'rb') #open binary file in read mode
+        image = open('/files/imgs/%s' % filename, 'rb') #open binary file in read mode
         image_read = image.read()
         global image_64_encode
         image_64_encode = base64.encodestring(image_read)
