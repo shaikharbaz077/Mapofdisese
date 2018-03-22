@@ -3,6 +3,10 @@ from flask import Flask,request,render_template,Response,redirect, url_for, esca
 import requests
 import json
 import base64
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+import requests
 from werkzeug import secure_filename
 from helper import read_base64_image
 from helper import gen_prediction
@@ -16,6 +20,12 @@ filename_src = ""
 my_list = []
 res=0
 UPLOAD_FOLDER = '/app/files/imgs/'
+
+cloudinary.config( 
+  cloud_name = "dx7b1x3es", 
+  api_key = "336942238365418", 
+  api_secret = "kLZBMLP0pJlgnTL10U0ICeLu7J4" 
+)
 
 @app.route('/')
 @app.route('/index')
@@ -34,17 +44,21 @@ def makereq():
 	    filename = secure_filename(fs.filename)
 	    #os.path.join
 
-	    filename_path = os.path.abspath('/app/files/imgs/'+filename)
-	    print("--------------------------------file path is : %s" % filename_path )
+        
+        cloudinary.uploader.upload(fs,folder = "uploadimgs/", public_id = filename)
+
+	    #filename_path = os.path.abspath('/app/files/imgs/'+filename)
+	    print("--------------------------------file path is : %s" % filename )
 	    global filename_src
-	    filename_src = filename_path
-	    fs.save(filename_path)
+	    #filename_src = filename_path
+	    #fs.save(filename_path)
 
         #enconding image base64
-        image = open('/app/files/imgs/%s' % filename, 'rb') #open binary file in read mode
-        image_read = image.read()
+        #image = open('/app/files/imgs/%s' % filename, 'rb') #open binary file in read mode
+        #image_read = fs.read()
         global image_64_encode
-        image_64_encode = base64.encodestring(image_read)
+        #image_read
+        image_64_encode = base64.encodestring(fs)
         #making post request
         print("-------------request gone to post predict-------------")
         #requests.post("http://127.0.0.1:5000/predictx")
