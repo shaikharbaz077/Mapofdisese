@@ -59,6 +59,8 @@ def makereq():
         global image_64_encode
         #image_read
         image_64_encode = base64.encodestring(fs.read())
+        print("image 64 read is")
+        print(image_64_encode)
         #making post request
         print("-------------request gone to post predict-------------")
         #requests.post("http://127.0.0.1:5000/predictx")
