@@ -2,7 +2,6 @@
 from flask import Flask,request,render_template,Response,redirect, url_for, escape
 import requests
 import json
-from PIL import Image
 import urllib2
 import base64
 import cStringIO
@@ -59,12 +58,11 @@ def makereq():
         #enconding image base64
         #image = open('/app/files/imgs/%s' % filename, 'rb') #open binary file in read mode
         #image_read = ("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg")
-        image_read =   cStringIO.StringIO(urllib2.urlopen("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg").read())
-        img = Image.open(file)
-
+        image_read =  urllib2.urlopen("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg").read()
+      
         global image_64_encode
         #image_read
-        image_64_encode = base64.encodestring(img)
+        image_64_encode = base64.encodestring(image_read)
         print("image 64 read is")
         print(image_64_encode)
         #making post request
