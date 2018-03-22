@@ -49,7 +49,7 @@ def makereq():
         #requests.post("http://127.0.0.1:5000/predictx")
         #, data={'image':image_64_encode}
         #funcz()
-        return redirect('http://127.0.0.1:5000/predict')
+        return redirect('http://127.0.0.1/predict')
         #print("-------------request gone to post predict-------------")
         #print(r.status_code, r.reason)
         
