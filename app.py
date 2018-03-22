@@ -39,19 +39,19 @@ def upload_file2():
 @app.route('/makeprep',methods = ['GET', 'POST'])
 def makereq():
 
-	if request.method == 'POST':
-	    fs = request.files['file']
-	    filename = secure_filename(fs.filename)
+    if request.method == 'POST':
+        fs = request.files['file']
+        filename = secure_filename(fs.filename)
 	    #os.path.join
 
         
         cloudinary.uploader.upload(fs,folder = "uploadimgs/", public_id = filename)
 
 	    #filename_path = os.path.abspath('/app/files/imgs/'+filename)
-	    print("--------------------------------file path is : %s" % filename )
-	    global filename_src
-	    #filename_src = filename_path
-	    #fs.save(filename_path)
+        print("--------------------------------file path is : %s" % filename )
+        global filename_src
+        #filename_src = filename_path
+        #fs.save(filename_path)
 
         #enconding image base64
         #image = open('/app/files/imgs/%s' % filename, 'rb') #open binary file in read mode
