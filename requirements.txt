@@ -35,7 +35,6 @@ mock==2.0.0
 murmurhash==0.26.4
 networkx==1.11
 nose==1.3.7
-urllib
 opencv-python
 numpy==1.13.1
 olefile==0.44
