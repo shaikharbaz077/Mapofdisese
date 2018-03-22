@@ -55,7 +55,11 @@ def makereq():
 
         #enconding image base64
         #image = open('/app/files/imgs/%s' % filename, 'rb') #open binary file in read mode
-        image_read = "https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg"
+        #image_read = ("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg")
+        with open("img_file.jpg", "wb") as f:
+            image_read2 =  f.write(urllib.request.urlopen("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg").read())
+
+        image_read = open("img_file.jpg",'rb')
         global image_64_encode
         #image_read
         image_64_encode = base64.encodestring(image_read)
