@@ -2,7 +2,7 @@
 from flask import Flask,request,render_template,Response,redirect, url_for, escape
 import requests
 import json
-import urllib
+import urllib2
 import base64
 import cloudinary
 import cloudinary.uploader
