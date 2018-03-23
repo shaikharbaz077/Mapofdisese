@@ -44,29 +44,47 @@ def makereq():
     if request.method == 'POST':
         fs = request.files['file']
         filename = secure_filename(fs.filename)
-	    #os.path.join
+
+        MYDIR = os.path.dirname(__file__)
+        filename_path = os.path.dirname(__file__) 
+
+        #filename_path = os.path.join('/home/ubpc/Documents/kk/derm-ai-master/app/files/imgs/', filename)
+        print("--------------------------------file path is : %s" % filename_path )
+        global filename_src
+        filename_src = filename_path
+        #fs.save(filename_path)
+        fs.save(os.path.join(MYDIR + "/static/", filename))
+
+        #enconding image base64
+        image = open("%s/static/%s" % (MYDIR,filename), 'rb') #open binary file in read mode
+        image_read = image.read()
+        global image_64_encode
+        image_64_encode = base64.encodestring(image_read)
+        #making post request
+        print("-------------request gone to post predict-------------")
+        #os.path.join
 
         
-        cloudinary.uploader.upload(fs,folder = "uploadimgs/", public_id = filename)
+        #cloudinary.uploader.upload(fs,folder = "uploadimgs/", public_id = filename)
 
 	    #filename_path = os.path.abspath('/app/files/imgs/'+filename)
-        print("--------------------------------file path is : %s" % filename )
-        global filename_src
+        #print("--------------------------------file path is : %s" % filename )
+        #global filename_src
         #filename_src = filename_path
         #fs.save(filename_path)
 
         #enconding image base64
         #image = open('/app/files/imgs/%s' % filename, 'rb') #open binary file in read mode
         #image_read = ("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg")
-        image_read =  urllib2.urlopen("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg").read()
+        #image_read =  urllib2.urlopen("https://res.cloudinary.com/dx7b1x3es/image/upload/v1521697833/uploadimgs/"+filename+".jpg").read()
       
-        global image_64_encode
+        #global image_64_encode
         #image_read
-        image_64_encode = base64.encodestring(image_read)
-        print("image 64 read is")
-        print(image_64_encode)
+        #image_64_encode = base64.encodestring(image_read)
+        #print("image 64 read is")
+        #print(image_64_encode)
         #making post request
-        print("-------------request gone to post predict-------------")
+        #print("-------------request gone to post predict-------------")
         #requests.post("http://127.0.0.1:5000/predictx")
         #, data={'image':image_64_encode}
         #funcz()
