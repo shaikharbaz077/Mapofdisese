@@ -2,6 +2,12 @@
 and prepare for input into the net.
 """
 
+import sys
+from model import FineTuneNet
+from utils.embeddings import ResNet152Embedder
+
+from config import MODEL_FILE
+
 import base64
 from PIL import Image
 import numpy as np
@@ -12,11 +18,18 @@ from io import StringIO
 import torch
 from torch.autograd import Variable
 
-import model
 from utils import embeddings
 from utils import preprocessing
 from utils import CLASS_IX_TO_NAME
 
+
+embedder = ResNet152Embedder()
+embedder.eval()
+
+checkpoint = torch.load(MODEL_FILE, map_location=lambda storage, location: storage)
+model = FineTuneNet()
+model.load_state_dict(checkpoint['state_dict'])
+model.eval()
 
 def read_base64_image(base64_str):
     """Converts base64 string to numpy array.
