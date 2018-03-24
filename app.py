@@ -5,9 +5,6 @@ import json
 import urllib2
 import base64
 import cStringIO
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 import requests
 from werkzeug import secure_filename
 from helper import read_base64_image
@@ -23,11 +20,6 @@ my_list = []
 res=0
 UPLOAD_FOLDER = '/app/files/imgs/'
 
-cloudinary.config( 
-  cloud_name = "dx7b1x3es", 
-  api_key = "336942238365418", 
-  api_secret = "kLZBMLP0pJlgnTL10U0ICeLu7J4" 
-)
 
 @app.route('/')
 @app.route('/index')
