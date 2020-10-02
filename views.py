@@ -74,6 +74,7 @@ def predict():
     response = json.dumps(response)
     print("-------------6-------------")
     print("res ------------")
+    print("End of program")
     print(response)#, filename_res=filename_src
     return render_template('result.html',response=response)
     #return Response(response=response)
