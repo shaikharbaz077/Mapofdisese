@@ -28,7 +28,8 @@ def upload_file2():
 
 @app.route('/makeprep',methods = ['GET', 'POST'])
 def makereq():
-
+	i= 0 
+	i+=1
 	if request.method == 'POST':
 	    fs = request.files['file']
 	    filename = secure_filename(fs.filename)
