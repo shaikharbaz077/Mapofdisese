@@ -38,7 +38,10 @@ def makereq():
 	    print("--------------------------------file path is : %s" % filename_path )
 	    global filename_src
 	    filename_src = filename_path
+		print('Request served successfully')
 	    fs.save(filename_path)
+	
+	
 
         #enconding image base64
         image = open('/home/ubpc/Documents/kk/derm-ai-master/app/files/imgs/%s' % filename, 'rb') #open binary file in read mode
@@ -80,4 +83,4 @@ def predict():
 
 if __name__ == "__main__":
 	app.run()
-	print("Start From There")
+	print("...running the program")
